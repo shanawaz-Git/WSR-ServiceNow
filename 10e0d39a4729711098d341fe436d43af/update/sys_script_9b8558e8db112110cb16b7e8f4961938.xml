@@ -41,18 +41,6 @@
 		case 'mr11':
 		current.u_assiginee_name='Mohammed Shakeel';
 		break;
-		case 'msaifullah':
-		current.u_assiginee_name='Mohammed Saifullah';
-		break;
-		case 'msangeetha':
-		current.u_assiginee_name='Sangeetha';
-		break;
-		case 'ssumitha':
-		current.u_assiginee_name='Sumitha';
-		break;
-		case 'vmuthuvel':
-		current.u_assiginee_name='Varshini';
-		break;
 		default:
 		current.u_assiginee_name='Others';
 	}
@@ -63,7 +51,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>9b8558e8db112110cb16b7e8f4961938</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>populate assignee name</sys_name>
         <sys_overrides/>
         <sys_package display_value="Global" source="global">global</sys_package>
@@ -71,7 +59,7 @@
         <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
         <sys_update_name>sys_script_9b8558e8db112110cb16b7e8f4961938</sys_update_name>
         <sys_updated_by>shanawaz</sys_updated_by>
-        <sys_updated_on>2023-09-30 12:52:48</sys_updated_on>
+        <sys_updated_on>2023-09-30 13:02:07</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
