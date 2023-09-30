@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="u_oc_t3" label="Oc T3" language="en" table="u_wsr_table">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>u_oc_t3</element>
+            <help/>
+            <hint/>
+            <label>Oc T3</label>
+            <language>en</language>
+            <name>u_wsr_table</name>
+            <plural>Oc T3s</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-02-25 06:08:58</sys_created_on>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_name>Oc T3</sys_name>
+            <sys_package display_value="Global" source="global">global</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+            <sys_update_name>sys_documentation_u_wsr_table_u_oc_t3_en</sys_update_name>
+            <sys_updated_by>shanawaz</sys_updated_by>
+            <sys_updated_on>2023-09-30 12:52:50</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18ae62616a80000001</claim_timestamp>
+        <metadata_update_name>sys_documentation_u_wsr_table_u_oc_t3_en</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-09-30 12:52:50</sys_created_on>
+        <sys_id>4b911f5e4729711098d341fe436d436c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-09-30 12:52:50</sys_updated_on>
+    </sys_claim>
+</record_update>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name/>
+        <active>true</active>
+        <client>false</client>
+        <client_script_v2><![CDATA[function onClick(g_form) {
+
+}]]></client_script_v2>
+        <comments/>
+        <condition/>
+        <form_action>true</form_action>
+        <form_button>true</form_button>
+        <form_button_v2>false</form_button_v2>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style>primary</form_style>
+        <format_for_configurable_workspace>false</format_for_configurable_workspace>
+        <hint/>
+        <isolate_script>false</isolate_script>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style>primary</list_style>
+        <messages/>
+        <name>WSR Export</name>
+        <onclick/>
+        <order>100</order>
+        <script><![CDATA[var output = "Assignee Name,Ticket Number,Efforts (hours),Ticket Type,Category,Status,Work Order,Number of Tickets,Number of Work Order,Resolved,Rework,Rework%,MTTR(Total hours of effort / number of tickets)";
+var count = 0;
+var recordId;
+var table = 'u_wsr_table';
+var state = '';
+var oc3 = '';
+var currentUser;
+var assignees = ['Shanawaz', 'Afrith Shariff', 'Mohammed Saifullah', 'Mohammed Shakeel', 'Sangeetha', 'Sumitha', 'Varshini'];
+//adding individual
+var indData = new global.IndividualReport();
+try {
+    var efforts = indData.getEfforts();
+    for (var i = 0; i < assignees.length; i++) {
+        var j = 0;
+        var gr = new GlideRecord("u_wsr_table");
+        gr.addEncodedQuery('u_create_date_timeONThis week@javascript:gs.beginningOfThisWeek()@javascript:gs.endOfThisWeek()^ORu_resolve_date_timeONThis week@javascript:gs.beginningOfThisWeek()@javascript:gs.endOfThisWeek()^ORu_status=In Progress^ORu_status=Pending^u_assiginee_name=' + assignees[i]);
+        gr.query();
+        while (gr.next()) {
+            switch (gr.getValue('u_assiginee_name')) {
+                case 'Afrith Shariff':
+                    currentUser = 1;
+                    break;
+                case 'Shanawaz':
+                    currentUser = 0;
+                    break;
+                case 'Mohammed Shakeel':
+                    currentUser = 3;
+                    break;
+                case 'Mohammed Saifullah':
+                    currentUser = 2;
+                    break;
+                case 'Sangeetha':
+                    currentUser = 4;
+                    break;
+                case 'Sumitha':
+                    currentUser = 5;
+                    break;
+                case 'Varshini':
+                    currentUser = 6;
+                    break;
+                default:
+                    currentUser = 7;
+            }
+            count++;
+            if (gr.getValue('u_status_reason') == 'Permanent resolution') {
+                state = 'Resolved';
+            } else {
+                state = gr.getValue('u_status_reason');
+            }
+            oc3 = JSON.stringify(gr.getValue('u_oc_t3')).toString().split(",").join(" ");
+            output += "\n" + gr.getValue('u_assiginee_name') + ',' + gr.getValue('u_incident_id') + ',' + efforts[currentUser].efforts.effortForTickets[j] + ',' + gr.getValue('u_incident_type') + ',' + oc3 + ',' + state + ',' + '0' + ',' + indData.getTotalcount(gr.getValue('u_assignee')) + ',' + '0' + ',' + indData.getResolvedcount(gr.getValue('u_assignee')) + ',' + '0' + ',' + '0' + ',' + efforts[currentUser].efforts.mttr;
+            j++;
+        }
+    }
+    if (count) {
+        recordId = current.getUniqueValue();
+    }
+
+    attachment = new Attachment();
+    attachmentRec = attachment.write(table, recordId, "WSRExport.csv", "text/csv", output);
+    action.setRedirectURL(current);
+} catch (error) {
+    gs.logError(gs.getMessage("wsrexport--> error = {0}", [error]));
+}]]></script>
+        <show_insert>true</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-04 15:09:23</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>eac2dabadb5de110cb16b7e8f496190c</sys_id>
+        <sys_mod_count>32</sys_mod_count>
+        <sys_name>WSR Export</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>sys_ui_action_eac2dabadb5de110cb16b7e8f496190c</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-09-30 12:52:48</sys_updated_on>
+        <table>u_wsr_table</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18ae6260f500000001</claim_timestamp>
+        <metadata_update_name>sys_ui_action_eac2dabadb5de110cb16b7e8f496190c</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-09-30 12:52:48</sys_created_on>
+        <sys_id>a691db5e4729711098d341fe436d43c5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-09-30 12:52:48</sys_updated_on>
+    </sys_claim>
+</record_update>

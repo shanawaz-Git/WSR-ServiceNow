@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-02-25 05:43:02</sys_created_on>
+        <sys_id>973ecce0db112110cb16b7e8f496192a</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>u_wsr_table.u_wsr_table_user</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_security_acl display_value="u_wsr_table">cb3ecce0db112110cb16b7e8f4961926</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_973ecce0db112110cb16b7e8f496192a</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-09-30 12:52:49</sys_updated_on>
+        <sys_user_role display_value="u_wsr_table_user" name="u_wsr_table_user">be3e84e0db112110cb16b7e8f496198e</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18ae62612490000001</claim_timestamp>
+        <metadata_update_name>sys_security_acl_role_973ecce0db112110cb16b7e8f496192a</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-09-30 12:52:49</sys_created_on>
+        <sys_id>ae911f5e4729711098d341fe436d4301</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-09-30 12:52:49</sys_updated_on>
+    </sys_claim>
+</record_update>

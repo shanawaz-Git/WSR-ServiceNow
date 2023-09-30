@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name/>
+        <active>true</active>
+        <client>true</client>
+        <client_script_v2><![CDATA[function onClick(g_form) {
+
+}]]></client_script_v2>
+        <comments/>
+        <condition/>
+        <form_action>false</form_action>
+        <form_button>false</form_button>
+        <form_button_v2>false</form_button_v2>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style/>
+        <format_for_configurable_workspace>false</format_for_configurable_workspace>
+        <hint/>
+        <isolate_script>true</isolate_script>
+        <list_action>true</list_action>
+        <list_banner_button>true</list_banner_button>
+        <list_button>true</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>true</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <messages/>
+        <name>Extract WSR</name>
+        <onclick>showConfirm()</onclick>
+        <order>100</order>
+        <script><![CDATA[function showConfirm() {
+    try {
+        var sysIdList = g_list.getChecked();
+        var getStatus = new GlideAjax("global.wsr_utils");
+        getStatus.addParam('sysparm_name', 'getStatus');
+        getStatus.addParam('sysparm_sysIdList', sysIdList);
+        getStatus.getXML(getAnswer);
+    } catch (error) {
+        gs.log("error is " + error);
+    }
+}
+
+function getAnswer(response) {
+    var answer = response.responseXML.documentElement.getAttribute("answer");
+    var resObj = JSON.parse(answer);
+	console.log('Team has worked on '+resObj.totalCount+' tickets in which resolved count is '+resObj.resolved+' and 0 work orders  ('+resObj.incidents+' - Incident | '+resObj.extraService+' - Extra service | '+resObj.enquiry+' - Query). The remaining  tickets status are [(a) Waiting for internal Approval: '+resObj.internalApproval+' | (b)Waiting for 3rd party vendor to take action: '+resObj.thirdParty+' | (c) Monitoring: '+resObj.monitoring+' |(d) Additional info needed from user: '+resObj.additionalInfoNeededFromUser+' |(e) Internal dependency: '+resObj.internalDependency+' | (f) In progress : '+resObj.inProgress+' | (g) on hold : '+resObj.onHold+'  |(h) user to validate : '+resObj.userToValidate+']');
+	// gs.eventQueue('wsr.individual', current, sentToEvent, htmlData);
+    alert('Total tickets: ' + resObj.totalCount + '\n--------------------\nIncidents: ' + resObj.incidents + '\nExtra Service: ' + resObj.extraService + '\nEnquiry: ' + resObj.enquiry + '\nType Unknown: ' + resObj.unknownType + '\n--------------------\nResolved: ' + resObj.resolved + '\nInternal Approval: ' + resObj.internalApproval + '\nOn Hold: ' + resObj.onHold + '\nUV: ' + resObj.userToValidate + '\nInternal Dependency: ' + resObj.internalDependency + '\nUser to take action: ' + resObj.userToTakeAction + '\nAdditional info needed from user: ' + resObj.additionalInfoNeededFromUser + '\nMonitoring: ' + resObj.monitoring + '\n3rd party to take act: ' + resObj.thirdParty + '\nIn Progress: ' + resObj.inProgress + '\nUnknown: ' + resObj.unknown);
+}]]></script>
+        <show_insert>true</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-02-25 06:05:51</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a5d2d828db112110cb16b7e8f4961923</sys_id>
+        <sys_mod_count>43</sys_mod_count>
+        <sys_name>Extract WSR</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>sys_ui_action_a5d2d828db112110cb16b7e8f4961923</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-09-30 12:52:52</sys_updated_on>
+        <table>u_wsr_table</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>true</ui16_compatible>
+    </sys_ui_action>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18ae6261d450000001</claim_timestamp>
+        <metadata_update_name>sys_ui_action_a5d2d828db112110cb16b7e8f4961923</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-09-30 12:52:52</sys_created_on>
+        <sys_id>53915f5e4729711098d341fe436d4301</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-09-30 12:52:52</sys_updated_on>
+    </sys_claim>
+</record_update>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="300ec8e0db112110cb16b7e8f49619cd" label="WSR Table" max_length="40" name="u_wsr_table" type="collection">
+        <element label="Assiginee Name" max_length="40" name="u_assiginee_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Assignee" max_length="40" name="u_assignee" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Business Categorization3" max_length="100" name="u_business_categorization3" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Closed Date" max_length="40" name="u_closed_date" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="Create Date" max_length="40" name="u_create_date" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="Create Date time" max_length="40" name="u_create_date_time" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" label="Customer Id" max_length="40" name="u_customer_id" type="string"/>
+        <element label="Incident Id" mandatory="true" max_length="200" name="u_incident_id" type="string" unique="true"/>
+        <element attributes="edge_encryption_enabled=true" label="Incident Type" max_length="40" name="u_incident_type" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Last Modified Date" max_length="40" name="u_last_modified_date" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="Last Modified Date time" max_length="40" name="u_last_modified_date_time" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" label="Notes" max_length="1000" name="u_notes" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Oc T3" max_length="100" name="u_oc_t3" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Priority" max_length="40" name="u_priority" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Resolution" max_length="1000" name="u_resolution" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Resolve Date" max_length="40" name="u_resolve_date" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="Resolve Date time" max_length="40" name="u_resolve_date_time" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" label="Status" max_length="40" name="u_status" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Status Reason" max_length="40" name="u_status_reason" type="string"/>
+        <element attributes="edge_encryption_enabled=true,no_truncate" label="Summary" max_length="1000" name="u_summary" type="string"/>
+        <index name="index" unique="true">
+            <element name="u_incident_id"/>
+        </index>
+    </element>
+</database>

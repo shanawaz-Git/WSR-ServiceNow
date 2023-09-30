@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name/>
+        <active>true</active>
+        <client>false</client>
+        <client_script_v2><![CDATA[function onClick(g_form) {
+
+}]]></client_script_v2>
+        <comments/>
+        <condition/>
+        <form_action>false</form_action>
+        <form_button>false</form_button>
+        <form_button_v2>false</form_button_v2>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style>destructive</form_style>
+        <format_for_configurable_workspace>false</format_for_configurable_workspace>
+        <hint/>
+        <isolate_script>false</isolate_script>
+        <list_action>true</list_action>
+        <list_banner_button>true</list_banner_button>
+        <list_button>true</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>true</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style>destructive</list_style>
+        <messages/>
+        <name>Individual data</name>
+        <onclick/>
+        <order>100</order>
+        <script><![CDATA[var gr = new GlideRecord("u_wsr_table");
+//gr.addEncodedQuery('u_create_date_timeONThis week@javascript:gs.beginningOfThisWeek()@javascript:gs.endOfThisWeek()^ORu_resolve_date_timeONThis week@javascript:gs.beginningOfThisWeek()@javascript:gs.endOfThisWeek()^u_assiginee_name!=Others^ORu_assiginee_name=NULL');
+gr.addEncodedQuery('u_create_date_timeONThis week@javascript:gs.beginningOfThisWeek()@javascript:gs.endOfThisWeek()^ORu_resolve_date_timeONThis week@javascript:gs.beginningOfThisWeek()@javascript:gs.endOfThisWeek()^ORu_status=In Progress^ORu_status=Pending^u_assiginee_name!=Others');
+gr.query();
+var total = gr.getRowCount();
+gs.log("wreindividual" + total);
+var indData = new global.IndividualReport();
+var dataObject = {
+    sshanawaz: {
+        resolved: indData.getResolvedcount("sshanawaz"),
+        totalTicket: indData.getTotalcount("sshanawaz"),
+        inProgress: indData.getInProgressCount("sshanawaz")
+    },
+    ay2: {
+        inProgress: indData.getInProgressCount("ay2"),
+        resolved: indData.getResolvedcount("ay2"),
+        totalTicket: indData.getTotalcount("ay2")
+    },
+    ssumitha: {
+        inProgress: indData.getInProgressCount("ssumitha"),
+        resolved: indData.getResolvedcount("ssumitha"),
+        totalTicket: indData.getTotalcount("ssumitha")
+    },
+    mr11: {
+        inProgress: indData.getInProgressCount("mr11"),
+        resolved: indData.getResolvedcount("mr11"),
+        totalTicket: indData.getTotalcount("mr11")
+    },
+    vmuthuvel: {
+        inProgress: indData.getInProgressCount("vmuthuvel"),
+        resolved: indData.getResolvedcount("vmuthuvel"),
+        totalTicket: indData.getTotalcount("vmuthuvel")
+    },
+    msaifullah: {
+        inProgress: indData.getInProgressCount("msaifullah"),
+        resolved: indData.getResolvedcount("msaifullah"),
+        totalTicket: indData.getTotalcount("msaifullah")
+    },
+    msangeetha: {
+        inProgress: indData.getInProgressCount("msangeetha"),
+        resolved: indData.getResolvedcount("msangeetha"),
+        totalTicket: indData.getTotalcount("msangeetha")
+    },
+    totalTickets: total,
+};
+var sentToEvent = JSON.stringify(dataObject);
+var htmlData = "<table><tr><th>Candidate</th><th>Inprogress</th><th>Resolved</th><th>Total</th></tr><tr><td>" +
+    "Shanawaz" + "</td><td>" + dataObject.sshanawaz.inProgress + "</td><td>" + dataObject.sshanawaz.resolved + "</td><td>" + dataObject.sshanawaz.totalTicket + "</td></tr>" +
+    "<tr><td> Afrith" + "</td><td>" + dataObject.ay2.inProgress + "</td><td>" + dataObject.ay2.resolved + "</td><td>" + dataObject.ay2.totalTicket + "</td></tr>" +
+    "<tr><td>Shakeel" + "</td><td>" + dataObject.mr11.inProgress + "</td><td>" + dataObject.mr11.resolved + "</td><td>" + dataObject.mr11.totalTicket + "</td></tr>" +
+    "<tr><td>Sumitha" + "</td><td>" + dataObject.ssumitha.inProgress + "</td><td>" + dataObject.ssumitha.resolved + "</td><td>" + dataObject.ssumitha.totalTicket + "</td></tr>" +
+    "<tr><td>Sangeetha" + "</td><td>" + dataObject.msangeetha.inProgress + "</td><td>" + dataObject.msangeetha.resolved + "</td><td>" + dataObject.msangeetha.totalTicket + "</td></tr>" +
+    "<tr><td>Saifullah" + "</td><td>" + dataObject.msaifullah.inProgress + "</td><td>" + dataObject.msaifullah.resolved + "</td><td>" + dataObject.msaifullah.totalTicket + "</td></tr>" +
+    "<tr><td>Varshini" + "</td><td>" + dataObject.vmuthuvel.inProgress + "</td><td>" + dataObject.vmuthuvel.resolved + "</td><td>" + dataObject.vmuthuvel.totalTicket + "</td></tr></table>";
+gs.log("wreindividual" + sentToEvent);
+gs.eventQueue('wsr.individual', current, sentToEvent, htmlData);
+action.setRedirectUrl(current);]]></script>
+        <show_insert>true</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-02-25 15:19:18</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>9ee112e8db192110cb16b7e8f4961985</sys_id>
+        <sys_mod_count>27</sys_mod_count>
+        <sys_name>Individual data</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>sys_ui_action_9ee112e8db192110cb16b7e8f4961985</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-09-30 12:52:50</sys_updated_on>
+        <table>u_wsr_table</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18ae626166d0000001</claim_timestamp>
+        <metadata_update_name>sys_ui_action_9ee112e8db192110cb16b7e8f4961985</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-09-30 12:52:50</sys_created_on>
+        <sys_id>b2911f5e4729711098d341fe436d4368</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-09-30 12:52:50</sys_updated_on>
+    </sys_claim>
+</record_update>
