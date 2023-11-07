@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="kagami_csindex_enabled=true,update_synch=false" db_object_id="24cc0fb5e8a1211076da10591ad287fc" extends="business_calendar" label="Schedule" max_length="40" name="cmn_schedule" type="collection">
+        <element label="Country" max_length="20" name="u_country" type="string"/>
+    </element>
+</database>
