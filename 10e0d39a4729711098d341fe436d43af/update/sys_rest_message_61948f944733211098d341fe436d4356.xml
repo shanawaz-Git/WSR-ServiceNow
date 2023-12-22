@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message">
+    <sys_rest_message action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <authentication_type>no_authentication</authentication_type>
+        <basic_auth_password/>
+        <basic_auth_profile/>
+        <basic_auth_user/>
+        <description>end point to add carriers to carriers page</description>
+        <name>Add Carriers to FEOS carriers page</name>
+        <oauth2_profile/>
+        <protocol_name/>
+        <rest_endpoint>https://fe-os-server.vercel.app//post/admin/addCarriers</rest_endpoint>
+        <sys_class_name>sys_rest_message</sys_class_name>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-06-29 07:15:20</sys_created_on>
+        <sys_id>61948f944733211098d341fe436d4356</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Add Carriers to FEOS carriers page</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>sys_rest_message_61948f944733211098d341fe436d4356</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:55</sys_updated_on>
+        <use_basic_auth>false</use_basic_auth>
+        <use_mutual_auth>false</use_mutual_auth>
+    </sys_rest_message>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18c9161d02f0000001</claim_timestamp>
+        <metadata_update_name>sys_rest_message_61948f944733211098d341fe436d4356</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-12-22 11:55:55</sys_created_on>
+        <sys_id>aa8026c5475f351098d341fe436d43b7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:55</sys_updated_on>
+    </sys_claim>
+</record_update>

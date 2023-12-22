@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2023-03-14 03:48:35</sys_created_on>
+        <sys_id>20179f31e8a5211076da10591ad2877e</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>task.short_description.task_editor</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_security_acl display_value="task.short_description">20179f31e8a5211076da10591ad2877d</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_20179f31e8a5211076da10591ad2877e</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:45</sys_updated_on>
+        <sys_user_role display_value="task_editor" name="task_editor">0956f6390a0a0bc50064623d5d51c556</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18c9161a9580000001</claim_timestamp>
+        <metadata_update_name>sys_security_acl_role_20179f31e8a5211076da10591ad2877e</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-12-22 11:55:45</sys_created_on>
+        <sys_id>c480ee85475f351098d341fe436d4345</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:45</sys_updated_on>
+    </sys_claim>
+</record_update>

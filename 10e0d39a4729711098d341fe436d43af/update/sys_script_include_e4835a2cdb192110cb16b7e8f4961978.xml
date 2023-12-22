@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>global.IndividualReport</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>IndividualReport</name>
+        <script><![CDATA[var IndividualReport = Class.create();
+IndividualReport.prototype = {
+    initialize: function() {},
+    "getInProgressCount": function(assignee) {
+        var gr = new GlideRecord("u_wsr_table");
+        gr.addEncodedQuery('u_create_date_timeONThis week@javascript:gs.beginningOfThisWeek()@javascript:gs.endOfThisWeek()^ORu_resolve_date_timeONThis week@javascript:gs.beginningOfThisWeek()@javascript:gs.endOfThisWeek()^ORu_status=In Progress^ORu_status=Pending^u_assiginee_name!=Others^u_status!=Resolved');
+        gr.addQuery("u_assignee", assignee);
+        gr.query();
+        var count = gr.getRowCount();
+        return count;
+    },
+    "getTotalcount": function(assignee) {
+        var gr = new GlideRecord("u_wsr_table");
+        gr.addEncodedQuery('u_create_date_timeONThis week@javascript:gs.beginningOfThisWeek()@javascript:gs.endOfThisWeek()^ORu_resolve_date_timeONThis week@javascript:gs.beginningOfThisWeek()@javascript:gs.endOfThisWeek()^ORu_status=In Progress^ORu_status=Pending^u_assiginee_name!=Others');
+        gr.addQuery("u_assignee", assignee);
+        gr.query();
+        var count = gr.getRowCount();
+        return count;
+    },
+    "getResolvedcount": function(assignee) {
+        var gr = new GlideRecord("u_wsr_table");
+        gr.addEncodedQuery('u_create_date_timeONThis week@javascript:gs.beginningOfThisWeek()@javascript:gs.endOfThisWeek()^ORu_resolve_date_timeONThis week@javascript:gs.beginningOfThisWeek()@javascript:gs.endOfThisWeek()^ORu_status=In Progress^ORu_status=Pending^u_assiginee_name!=Others^u_status=Resolved');
+        gr.addQuery("u_assignee", assignee);
+        gr.query();
+        var count = gr.getRowCount();
+        return count;
+    },
+    'getEfforts': function() {
+        try {
+            var assignees = ['Shanawaz', 'Afrith Shariff', 'Mohammed Saifullah', 'Mohammed Shakeel', 'Sangeetha', 'Sumitha', 'Varshini'];
+            var overallEfforts = [];
+            var effortUserObj = {};
+            var effortObj = {};
+            var tempArr = [];
+            for (var i = 0; i < assignees.length; i++) {
+                effortUserObj.assignee = assignees[i];
+                var gr = new GlideAggregate("u_wsr_table");
+                gr.addEncodedQuery('u_create_date_timeONThis week@javascript:gs.beginningOfThisWeek()@javascript:gs.endOfThisWeek()^ORu_resolve_date_timeONThis week@javascript:gs.beginningOfThisWeek()@javascript:gs.endOfThisWeek()^ORu_status=In Progress^ORu_status=Pending^u_assiginee_name=' + assignees[i]);
+                gr.query();
+                var rowCount = gr.getRowCount();
+                for (var j = 1; j <= rowCount; j++) {
+                    tempArr.push(Math.floor(Math.random() * 5) + 1);
+                }
+                effortObj.effortForTickets = tempArr;
+                effortObj.mttr = this.avg(tempArr);
+                effortUserObj.efforts = effortObj;
+				effortObj={};
+                tempArr = [];
+                overallEfforts.push(effortUserObj);
+				effortUserObj={};
+            }
+            return overallEfforts;
+        } catch (error) {
+            gs.log("error is " + error);
+        }
+    },
+    'avg': function(arr) {
+        var sum = 0;
+        arr.forEach(function(item, idx) {
+            sum += item;
+        });
+        return ((sum / arr.length).toFixed(2));
+    },
+    type: 'IndividualReport'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-02-25 15:25:35</sys_created_on>
+        <sys_id>e4835a2cdb192110cb16b7e8f4961978</sys_id>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_name>IndividualReport</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>sys_script_include_e4835a2cdb192110cb16b7e8f4961978</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:56:01</sys_updated_on>
+    </sys_script_include>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18c9161e5750000001</claim_timestamp>
+        <metadata_update_name>sys_script_include_e4835a2cdb192110cb16b7e8f4961978</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-12-22 11:56:01</sys_created_on>
+        <sys_id>fb80a6c5475f351098d341fe436d43d1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:56:01</sys_updated_on>
+    </sys_claim>
+</record_update>

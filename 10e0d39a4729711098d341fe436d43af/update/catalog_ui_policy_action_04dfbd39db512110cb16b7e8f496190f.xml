@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="catalog_ui_policy_action">
+    <catalog_ui_policy_action action="INSERT_OR_UPDATE">
+        <catalog_item display_value="billing testing">5e4bc597db012110cb16b7e8f49619d9</catalog_item>
+        <catalog_variable>IO:744d3197dbc12110cb16b7e8f4961921</catalog_variable>
+        <cleared>true</cleared>
+        <disabled>ignore</disabled>
+        <field/>
+        <mandatory>ignore</mandatory>
+        <order>100</order>
+        <sys_class_name>catalog_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-01 11:12:16</sys_created_on>
+        <sys_id>04dfbd39db512110cb16b7e8f496190f</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>manual_selection</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>catalog_ui_policy_action_04dfbd39db512110cb16b7e8f496190f</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:49</sys_updated_on>
+        <table/>
+        <ui_policy display_value="show hide">c82ff539db512110cb16b7e8f4961945</ui_policy>
+        <variable>manual_selection</variable>
+        <variable_set/>
+        <visible>true</visible>
+    </catalog_ui_policy_action>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18c9161b5b70000001</claim_timestamp>
+        <metadata_update_name>catalog_ui_policy_action_04dfbd39db512110cb16b7e8f496190f</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-12-22 11:55:49</sys_created_on>
+        <sys_id>308062c5475f351098d341fe436d436d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:49</sys_updated_on>
+    </sys_claim>
+</record_update>

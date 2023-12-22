@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description/>
+        <ignore_cache>true</ignore_cache>
+        <is_private>false</is_private>
+        <name>individual.user.efforts</name>
+        <read_roles/>
+        <suffix/>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-08 07:19:33</sys_created_on>
+        <sys_id>5207b04edbce2110cb16b7e8f49619c7</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>individual.user.efforts</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>sys_properties_5207b04edbce2110cb16b7e8f49619c7</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:56:01</sys_updated_on>
+        <type>string</type>
+        <value/>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=5207b04edbce2110cb16b7e8f49619c7"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18c9161e7e80000001</claim_timestamp>
+        <metadata_update_name>sys_properties_5207b04edbce2110cb16b7e8f49619c7</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-12-22 11:56:01</sys_created_on>
+        <sys_id>c490e6c5475f351098d341fe436d433e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:56:01</sys_updated_on>
+    </sys_claim>
+</record_update>

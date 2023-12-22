@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>'Items per page' drop-down options (comma separated, no spaces):</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>glide.ui.per_page</name>
+        <read_roles/>
+        <suffix/>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>glide.maint</sys_created_by>
+        <sys_created_on>2005-10-17 02:47:18</sys_created_on>
+        <sys_id>fc794773c0a80169017b5179c629af26</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>glide.ui.per_page</sys_name>
+        <sys_package display_value="System (glidesoft)" source="glidesoft">4579cf31e821211076da10591ad2871a</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>sys_properties_fc794773c0a80169017b5179c629af26</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:52</sys_updated_on>
+        <type>string</type>
+        <value>50,100,150,200,500</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=fc794773c0a80169017b5179c629af26"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18c9161c2df0000001</claim_timestamp>
+        <metadata_update_name>sys_properties_fc794773c0a80169017b5179c629af26</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-12-22 11:55:52</sys_created_on>
+        <sys_id>f180a2c5475f351098d341fe436d43bd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:52</sys_updated_on>
+    </sys_claim>
+</record_update>

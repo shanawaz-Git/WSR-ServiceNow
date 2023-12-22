@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>POST</http_method>
+        <name>pushtickets</name>
+        <operation_script><![CDATA[(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+    var reqst = request.body.data;
+    // gs.log("qwertyuiop----------------->>>>" + JSON.stringify(reqst));
+    var ticketArray = reqst.content;
+
+    var availableArray = [];
+    var notavailableArray = [];
+
+    var trfTicket = new GlideRecord("u_wsr_table");
+    trfTicket.addEncodedQuery('u_status!=Closed^ORu_status=NULL^u_status!=Resolved^ORu_status=NULL^u_status!=Cancelled^ORu_status=NULL^u_create_date_timeRELATIVELT@dayofweek@ago@1^ORDERBYDESCsys_updated_on');
+    trfTicket.query();
+    while (trfTicket._next()) {
+        trfTicket.u_status = "Transferred";
+        trfTicket.u_status_reason = "transferred to other team";
+        trfTicket.update();
+    }
+
+
+    for (var i = 0; i < ticketArray.length; i++) {
+        var gr = new GlideRecord("u_wsr_table");
+        gr.addQuery("u_incident_id", ticketArray[i].Incident_Number);
+        gr.query();
+        gr.setLimit(1);
+        if (gr._next()) {
+            //update
+            availableArray.push(ticketArray[i].Incident_Number);
+            gr.setValue('u_assignee', ticketArray[i].Assignee_Login_ID);
+            gr.setValue('u_business_categorization3', ticketArray[i].BusinessCategorization3);
+            gr.setValue('u_customer_id', ticketArray[i].CustomerLoginID);
+            gr.setValue('u_incident_id', ticketArray[i].Incident_Number);
+            gr.setValue('u_incident_type', ticketArray[i].IncidentType);
+            gr.setValue('u_notes', ticketArray[i].Detailed_Decription);
+            gr.setValue('u_oc_t3', ticketArray[i].Categorization_Tier_3);
+            gr.setValue('u_priority', ticketArray[i].Priority);
+            gr.setValue('u_resolution', ticketArray[i].Resolution.replace(/\n/gi, "<br>"));
+            gr.setValue('u_status', ticketArray[i].Status);
+            gr.setValue('u_status_reason', ticketArray[i].Status_Reason);
+            gr.setValue('u_summary', ticketArray[i].Description.replace(/\n/gi, "<br>"));
+            gr.setValue('u_create_date', getDate(ticketArray[i].sysCreateTime));
+            gr.setValue('u_create_date_time', getDate(ticketArray[i].sysCreateTime));
+            gr.setValue('u_closed_date', getDate(ticketArray[i].Closed_Date));
+            gr.setValue('u_last_modified_date', getDate(ticketArray[i].Last_Modified_Date));
+            gr.setValue('u_last_modified_date_time', getDate(ticketArray[i].Last_Modified_Date));
+            gr.setValue('u_resolve_date', getDate(ticketArray[i].Resolved_Date));
+            gr.setValue('u_resolve_date_time', getDate(ticketArray[i].Resolved_Date));
+            gr.update();
+
+        } else {
+            //create
+            notavailableArray.push(ticketArray[i].Incident_Number);
+            gr.initialize();
+            gr.setValue('u_assignee', ticketArray[i].Assignee_Login_ID);
+            gr.setValue('u_business_categorization3', ticketArray[i].BusinessCategorization3);
+            gr.setValue('u_customer_id', ticketArray[i].CustomerLoginID);
+            gr.setValue('u_incident_id', ticketArray[i].Incident_Number);
+            gr.setValue('u_incident_type', ticketArray[i].IncidentType);
+            gr.setValue('u_notes', ticketArray[i].Detailed_Decription);
+            gr.setValue('u_oc_t3', ticketArray[i].Categorization_Tier_3);
+            gr.setValue('u_priority', ticketArray[i].Priority);
+            gr.setValue('u_resolution', ticketArray[i].Resolution.replace(/\n/gi, "<br>"));
+            gr.setValue('u_status', ticketArray[i].Status);
+            gr.setValue('u_status_reason', ticketArray[i].Status_Reason);
+            gr.setValue('u_summary', ticketArray[i].Description.replace(/\n/gi, "<br>"));
+            gr.setValue('u_create_date', getDate(ticketArray[i].sysCreateTime));
+            gr.setValue('u_create_date_time', getDate(ticketArray[i].sysCreateTime));
+            gr.setValue('u_closed_date', getDate(ticketArray[i].Closed_Date));
+            gr.setValue('u_last_modified_date', getDate(ticketArray[i].Last_Modified_Date));
+            gr.setValue('u_last_modified_date_time', getDate(ticketArray[i].Last_Modified_Date));
+            gr.setValue('u_resolve_date', getDate(ticketArray[i].Resolved_Date));
+            gr.setValue('u_resolve_date_time', getDate(ticketArray[i].Resolved_Date));
+            var a = gr.insert();
+            gs.log("in ticket------------------> script 1" + ticketArray[i] + a);
+
+        }
+
+    }
+
+    //gs.eventQueue('event.name', GlideRecord, parm1, parm2); // standard form
+    //     gs.eventQueue("process.inbound.tickets", '', ticketArray, "tickets------------->");
+
+    var tickets = [];
+    trfTicket.addEncodedQuery('u_create_date_timeONToday@javascript:gs.beginningOfToday()@javascript:gs.endOfToday()^ORu_resolve_dateONToday@javascript:gs.beginningOfToday()@javascript:gs.endOfToday()^ORu_status=In Progress^ORu_status=Pending^u_assignee=sshanawaz');
+    trfTicket.query();
+    while (trfTicket.next()) {
+        tickets.push(trfTicket.sys_id);
+    }
+    // var getDailyStatus = new global.wsr_utils();
+
+    response.setBody({
+        "arrayLength": ticketArray.length,
+        "notAvailableCount": notavailableArray.length,
+        "availableCount": availableArray.length,
+        "notAvailabeTicket": notavailableArray,
+        "availabeTicket": availableArray,
+        // "eventStatus": getDailyStatus.dailyStatus(tickets),
+        "ticketWorked": tickets.length,
+    });
+    response.setStatus(201);
+
+
+})(request, response);
+// Convert date form milliseconds
+function getDate(timestamp) {
+    var gdt = new GlideDateTime();
+    if (timestamp != null) {
+        gdt.setNumericValue(timestamp);
+        return gdt;
+    }
+    return '';
+}
+
+function getTicketInfo(response) {
+    var answer = response.responseXML.documentElement.getAttribute("answer");
+    // alert(answer);
+}]]></operation_script>
+        <operation_uri>/api/808481/itsm_link/pushtickets</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/pushtickets</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-09-26 13:17:45</sys_created_on>
+        <sys_id>a520bacd47a9311098d341fe436d43ff</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>pushtickets</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>sys_ws_operation_a520bacd47a9311098d341fe436d43ff</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:58</sys_updated_on>
+        <web_service_definition display_value="ITSM link">f5ef2e054729311098d341fe436d4339</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18c9161dc0c0000001</claim_timestamp>
+        <metadata_update_name>sys_ws_operation_a520bacd47a9311098d341fe436d43ff</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-12-22 11:55:58</sys_created_on>
+        <sys_id>db8066c5475f351098d341fe436d43d2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:58</sys_updated_on>
+    </sys_claim>
+</record_update>

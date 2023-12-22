@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="question_choice">
+    <question_choice action="INSERT_OR_UPDATE">
+        <inactive>false</inactive>
+        <order>100</order>
+        <published_ref/>
+        <question display_value="enter manually">9e73a91fdb412110cb16b7e8f49619fb</question>
+        <sys_class_name>question_choice</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-01 11:02:52</sys_created_on>
+        <sys_id>ef9d7db5db512110cb16b7e8f49619d6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Automatic salaction</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>question_choice_ef9d7db5db512110cb16b7e8f49619d6</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:50</sys_updated_on>
+        <text>Automatic salaction</text>
+        <value>automatic_selaction</value>
+    </question_choice>
+    <fx_price action="delete_multiple" query="id=ef9d7db5db512110cb16b7e8f49619d6"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18c9161bc920000001</claim_timestamp>
+        <metadata_update_name>question_choice_ef9d7db5db512110cb16b7e8f49619d6</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-12-22 11:55:50</sys_created_on>
+        <sys_id>5180a2c5475f351098d341fe436d4312</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:50</sys_updated_on>
+    </sys_claim>
+</record_update>

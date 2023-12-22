@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="c1920b144733211098d341fe436d4377" label="carriers" max_length="40" name="u_carriers" type="collection">
+        <element label="Active" mandatory="true" max_length="30" name="u_active" type="boolean"/>
+        <element label="Appy Link" mandatory="true" max_length="30" name="u_apply_link" type="url"/>
+        <element label="Country" mandatory="true" max_length="30" name="u_country" type="string"/>
+        <element display="true" label="DB Sync" max_length="40" name="u_db_sync" read_only="true" type="boolean"/>
+        <element label="Job Title" mandatory="true" max_length="50" name="u_job_title" type="string"/>
+        <element label="Sector" mandatory="true" max_length="30" name="u_sector" type="string"/>
+        <element label="State" mandatory="true" max_length="30" name="u_state" type="string"/>
+    </element>
+</database>

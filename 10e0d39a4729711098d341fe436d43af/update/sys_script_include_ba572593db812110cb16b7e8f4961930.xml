@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>global.setBillingAttribute</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>setBillingAttribute</name>
+        <script><![CDATA[var setBillingAttribute = Class.create();
+setBillingAttribute.prototype = {
+    initialize: function() {
+		
+    },
+billingAttribute:function(boolval){
+ if(!boolval){
+ return "glide_list";
+ }
+ else{
+ return " ";
+ }
+},
+    type: 'setBillingAttribute'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-02-21 15:03:14</sys_created_on>
+        <sys_id>ba572593db812110cb16b7e8f4961930</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>setBillingAttribute</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>sys_script_include_ba572593db812110cb16b7e8f4961930</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:41</sys_updated_on>
+    </sys_script_include>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18c9161968e0000001</claim_timestamp>
+        <metadata_update_name>sys_script_include_ba572593db812110cb16b7e8f4961930</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-12-22 11:55:41</sys_created_on>
+        <sys_id>cf706e85475f351098d341fe436d4357</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:41</sys_updated_on>
+    </sys_claim>
+</record_update>

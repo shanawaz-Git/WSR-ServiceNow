@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>Shared service scheduler url</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>glide.shared_service_scheduler.url</name>
+        <read_roles/>
+        <suffix>glide.shared_service_scheduler.url</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-02-15 01:11:56</sys_created_on>
+        <sys_id>b16c900c0b013200d109061437673a5d</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>glide.shared_service_scheduler.url</sys_name>
+        <sys_package display_value="Predictive Intelligence" source="com.glide.platform_ml">e16a87b9e821211076da10591ad28705</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>sys_properties_b16c900c0b013200d109061437673a5d</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:44</sys_updated_on>
+        <type>string</type>
+        <value>https://sncmlschedulerdev.service-now.com/</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=b16c900c0b013200d109061437673a5d"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18c9161a2360000001</claim_timestamp>
+        <metadata_update_name>sys_properties_b16c900c0b013200d109061437673a5d</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-12-22 11:55:44</sys_created_on>
+        <sys_id>7b70ae85475f351098d341fe436d433b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:44</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18c9161a2350000001</claim_timestamp>
+        <metadata_update_name>sys_properties_b16c900c0b013200d109061437673a5d</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.glide.platform_ml</previous_claim_name>
+        <previous_claim_scope>com.glide.platform_ml</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-12-22 11:55:44</sys_created_on>
+        <sys_id>3f70ae85475f351098d341fe436d433b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:44</sys_updated_on>
+    </sys_claim>
+</record_update>

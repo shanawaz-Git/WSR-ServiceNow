@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn">
+    <sys_rest_message_fn action="INSERT_OR_UPDATE">
+        <authentication_type>inherit_from_parent</authentication_type>
+        <basic_auth_password/>
+        <basic_auth_profile/>
+        <basic_auth_user/>
+        <content>{&#13;
+    "country": "${country}",&#13;
+    "state": "${state}",&#13;
+    "jobTitle": "${jobTitle}",&#13;
+    "sector": "${sector}",&#13;
+    "applyLink": "${applyLink}",&#13;
+    "active":${active}&#13;
+}</content>
+        <function_name>send_carrier_to_feos</function_name>
+        <http_method>post</http_method>
+        <lock>false</lock>
+        <oauth2_profile/>
+        <protocol_name/>
+        <qualified_name>Add Carriers to FEOS carriers page [ send_carrier_to_feos ]</qualified_name>
+        <rest_endpoint>https://fe-os-server.vercel.app/post/admin/addCarriers</rest_endpoint>
+        <rest_message display_value="Add Carriers to FEOS carriers page">61948f944733211098d341fe436d4356</rest_message>
+        <sys_class_name>sys_rest_message_fn</sys_class_name>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-06-29 07:19:04</sys_created_on>
+        <sys_id>f3a80f984733211098d341fe436d43ce</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>send_carrier_to_feos</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>sys_rest_message_fn_f3a80f984733211098d341fe436d43ce</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:51</sys_updated_on>
+        <use_basic_auth>false</use_basic_auth>
+        <use_mid_server/>
+        <use_mutual_auth>false</use_mutual_auth>
+    </sys_rest_message_fn>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18c9161bf230000001</claim_timestamp>
+        <metadata_update_name>sys_rest_message_fn_f3a80f984733211098d341fe436d43ce</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-12-22 11:55:51</sys_created_on>
+        <sys_id>e980a2c5475f351098d341fe436d435a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:51</sys_updated_on>
+    </sys_claim>
+</record_update>

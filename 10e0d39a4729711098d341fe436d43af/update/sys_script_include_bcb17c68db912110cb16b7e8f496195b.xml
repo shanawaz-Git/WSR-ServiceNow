@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>global.WSRUtilitis</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>WSRUtilitis</name>
+        <script><![CDATA[var WSRUtilitis = Class.create();
+WSRUtilitis.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+    "getstatus": function(grObject, field, value) {
+        var gr = new GlideRecord("u_wsr_table");
+        gr.addEncodedQuery('sys_idIN' + grObject);
+        gr.query();
+
+        var status = {
+            extraService: gr.query("u_incident_type", "Extra Service").getRowCount(),
+            incident: gr.query("u_incident_type", "Incident").getRowCount(),
+            inquiry: gr.query("u_incident_type", "Inquiry").getRowCount()
+        };
+        return status.toString();
+
+    },
+    type: 'WSRUtilitis'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-02-25 08:18:45</sys_created_on>
+        <sys_id>bcb17c68db912110cb16b7e8f496195b</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>WSRUtilitis</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>sys_script_include_bcb17c68db912110cb16b7e8f496195b</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:48</sys_updated_on>
+    </sys_script_include>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18c9161b3070000001</claim_timestamp>
+        <metadata_update_name>sys_script_include_bcb17c68db912110cb16b7e8f496195b</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-12-22 11:55:48</sys_created_on>
+        <sys_id>f88062c5475f351098d341fe436d432f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:48</sys_updated_on>
+    </sys_claim>
+</record_update>

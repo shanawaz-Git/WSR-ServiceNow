@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="265ed0b8db012110cb16b7e8f4961985" extends="sys_import_set_row" label="Cad Demo" max_length="40" name="u_cad_demo" type="collection">
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Assigned Company" label="Assigned Company" max_length="40" name="u_assigned_company" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Assigned Group" label="Assigned Group" max_length="40" name="u_assigned_group" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Assigned Organization" label="Assigned Organization" max_length="40" name="u_assigned_organization" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Assignee" label="Assignee" max_length="40" name="u_assignee" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Customer Id" label="Customer Id" max_length="40" name="u_customer_id" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Desctiption" label="Desctiption" max_length="40" name="u_desctiption" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Incident Type" label="Incident Type" max_length="40" name="u_incident_type" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=ï»¿&quot;Incident Id&quot;" label="ï»¿&quot;Incident Id&quot;" max_length="40" name="u_ï___incident_id_" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Name" label="Name" max_length="40" name="u_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Notes" label="Notes" max_length="40" name="u_notes" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=number" label="number" max_length="40" name="u_number" type="float"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Oc T1" label="Oc T1" max_length="40" name="u_oc_t1" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Oc T2" label="Oc T2" max_length="40" name="u_oc_t2" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Pc T1" label="Pc T1" max_length="40" name="u_pc_t1" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Pc T2" label="Pc T2" max_length="40" name="u_pc_t2" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Pc T3" label="Pc T3" max_length="40" name="u_pc_t3" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Priority" label="Priority" max_length="40" name="u_priority" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Report Source" label="Report Source" max_length="40" name="u_report_source" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Resolution" label="Resolution" max_length="40" name="u_resolution" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Status" label="Status" max_length="40" name="u_status" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Status Reason" label="Status Reason" max_length="40" name="u_status_reason" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Summary" label="Summary" max_length="40" name="u_summary" type="string"/>
+    </element>
+</database>

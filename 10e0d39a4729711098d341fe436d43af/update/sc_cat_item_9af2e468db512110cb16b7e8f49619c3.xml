@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item">
+    <sc_cat_item action="INSERT_OR_UPDATE">
+        <access_type>restricted</access_type>
+        <active>true</active>
+        <availability>on_desktop</availability>
+        <billable>false</billable>
+        <category display_value="Services">109f0438c6112276003ae8ac13e7009d</category>
+        <checked_out/>
+        <cost>0</cost>
+        <custom_cart/>
+        <delivery_plan/>
+        <delivery_plan_script/>
+        <delivery_time>1970-01-03 00:00:00</delivery_time>
+        <description><![CDATA[<p> </p>
+<p><a title="Click here to download the Attachment" href="sys_attachment.do?sys_id&#61;96642468db512110cb16b7e8f49619bf" rel="nofollow"><span style="font-size: 10pt; font-family: &#39;comic sans ms&#39;, sans-serif;">Click here to download the Attachment</span></a></p>]]></description>
+        <display_price_property>non_zero</display_price_property>
+        <entitlement_script/>
+        <flow_designer_flow/>
+        <fulfillment_automation_level>unspecified</fulfillment_automation_level>
+        <group/>
+        <hide_sp>false</hide_sp>
+        <icon/>
+        <ignore_price>false</ignore_price>
+        <image/>
+        <location/>
+        <mandatory_attachment>false</mandatory_attachment>
+        <meta/>
+        <mobile_hide_price>false</mobile_hide_price>
+        <mobile_picture/>
+        <mobile_picture_type>use_desktop_picture</mobile_picture_type>
+        <model/>
+        <name>WSR Data Upload</name>
+        <no_attachment_v2>false</no_attachment_v2>
+        <no_cart>false</no_cart>
+        <no_cart_v2>false</no_cart_v2>
+        <no_delivery_time_v2>false</no_delivery_time_v2>
+        <no_order>false</no_order>
+        <no_order_now>false</no_order_now>
+        <no_proceed_checkout>false</no_proceed_checkout>
+        <no_quantity>false</no_quantity>
+        <no_quantity_v2>false</no_quantity_v2>
+        <no_search>false</no_search>
+        <no_wishlist_v2>false</no_wishlist_v2>
+        <omit_price>false</omit_price>
+        <order>0</order>
+        <ordered_item_link/>
+        <owner display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</owner>
+        <picture/>
+        <preview>JavaScript: popupOpenStandard("com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id=9af2e468db512110cb16b7e8f49619c3&amp;sysparm_preview=true", "summary");</preview>
+        <price>0</price>
+        <published_ref/>
+        <recurring_frequency/>
+        <recurring_price>0</recurring_price>
+        <request_method/>
+        <roles/>
+        <sc_catalogs>e0d08b13c3330100c8b837659bba8fb4</sc_catalogs>
+        <sc_ic_item_staging/>
+        <sc_ic_version/>
+        <sc_template/>
+        <short_description/>
+        <show_variable_help_on_load>false</show_variable_help_on_load>
+        <start_closed>false</start_closed>
+        <state/>
+        <sys_class_name>sc_cat_item</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-02-25 07:22:09</sys_created_on>
+        <sys_id>9af2e468db512110cb16b7e8f49619c3</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>WSR Data Upload</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>sc_cat_item_9af2e468db512110cb16b7e8f49619c3</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:40</sys_updated_on>
+        <taxonomy_topic/>
+        <template/>
+        <template_manager_roles/>
+        <type>item</type>
+        <use_sc_layout>true</use_sc_layout>
+        <vendor/>
+        <version>1</version>
+        <visible_bundle>true</visible_bundle>
+        <visible_guide>true</visible_guide>
+        <visible_standalone>true</visible_standalone>
+        <workflow display_value="Bulk Upload WSR Update">7e45e0e8db512110cb16b7e8f49619ad</workflow>
+    </sc_cat_item>
+    <sys_translated_text action="delete_multiple" query="documentkey=9af2e468db512110cb16b7e8f49619c3"/>
+    <fx_price action="delete_multiple" query="id=9af2e468db512110cb16b7e8f49619c3"/>
+    <fx_price action="INSERT_OR_UPDATE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>price</field>
+        <id>9af2e468db512110cb16b7e8f49619c3</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-02-25 07:22:09</sys_created_on>
+        <sys_id>9fe468e8db512110cb16b7e8f4961968</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-02-25 07:22:09</sys_updated_on>
+        <table>sc_cat_item</table>
+        <type>calculated</type>
+    </fx_price>
+    <fx_price action="INSERT_OR_UPDATE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>recurring_price</field>
+        <id>9af2e468db512110cb16b7e8f49619c3</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-02-25 07:22:09</sys_created_on>
+        <sys_id>97e468e8db512110cb16b7e8f496196a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-02-25 07:22:09</sys_updated_on>
+        <table>sc_cat_item</table>
+        <type>calculated</type>
+    </fx_price>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color/>
+        <chunk_size_bytes>700000</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>text/csv</content_type>
+        <file_name>WSR Data Upload Template.csv</file_name>
+        <hash>15e3dbe8c24221c3f203b9c369aa605a169d38dc72745d1cfbdd9ae6969b7dc3</hash>
+        <image_height/>
+        <image_width/>
+        <size_bytes>2272</size_bytes>
+        <size_compressed>279</size_compressed>
+        <state>available</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-02-25 07:19:54</sys_created_on>
+        <sys_id>96642468db512110cb16b7e8f49619bf</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-02-25 07:19:54</sys_updated_on>
+        <table_name>sc_cat_item</table_name>
+        <table_sys_id>9af2e468db512110cb16b7e8f49619c3</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="WSR Data Upload Template.csv" sys_id="96642468db512110cb16b7e8f49619bf">96642468db512110cb16b7e8f49619bf</sys_attachment>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-02-25 07:19:54</sys_created_on>
+        <sys_id>d6642468db512110cb16b7e8f49619bf</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>7ZFBTsMwEEX3SNzBB/Am6QnASKgSNFHTC5h4iCzVnsgzRgpXY8GRuAKJS9ogtWXLwl6Mx/8/z1jjr4/PtW+tAc9ibaSKxOggTHkTndNhkHWwGCwP8gjuhh7kFnoMLBqMoQW5QQaSDWuO8ya2oAm9vCOynQcjFLpe++EkVKHT3r5rtkvsMWDs5+PUh3AfE1K3YlekWKa4klVSqqRUSbmPZD0QCaUZuvHhh/LFJaO8ZKwWnUUd0MSWZ2QorpnlNfNX2bPlzpY5XVc6EoyzND+jeQPxMJrySROLZzT21Y5DTJLaIx3zAOO2QA8DdtN/JrGJL84yQ7i9kX+vDGUoQxnKUIb+M/QNwAy0CuAIAAA=</data>
+        <length>360</length>
+        <position>1</position>
+        <sys_attachment display_value="WSR Data Upload Template.csv" sys_id="96642468db512110cb16b7e8f49619bf">96642468db512110cb16b7e8f49619bf</sys_attachment>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-02-25 07:19:54</sys_created_on>
+        <sys_id>5a642468db512110cb16b7e8f49619bf</sys_id>
+    </sys_attachment_doc>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18c916194380000001</claim_timestamp>
+        <metadata_update_name>sc_cat_item_9af2e468db512110cb16b7e8f49619c3</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-12-22 11:55:40</sys_created_on>
+        <sys_id>3a706e85475f351098d341fe436d4327</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:40</sys_updated_on>
+    </sys_claim>
+</record_update>

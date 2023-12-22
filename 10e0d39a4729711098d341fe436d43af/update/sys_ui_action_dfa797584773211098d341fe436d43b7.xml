@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name>sysverb_update</action_name>
+        <active>true</active>
+        <client>false</client>
+        <client_script_v2><![CDATA[function onClick(g_form) {
+
+}]]></client_script_v2>
+        <comments/>
+        <condition/>
+        <form_action>false</form_action>
+        <form_button>false</form_button>
+        <form_button_v2>false</form_button_v2>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style/>
+        <format_for_configurable_workspace>false</format_for_configurable_workspace>
+        <hint/>
+        <isolate_script>false</isolate_script>
+        <list_action>true</list_action>
+        <list_banner_button>true</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style>destructive</list_style>
+        <messages/>
+        <name>Pull Carriers</name>
+        <onclick/>
+        <order>100</order>
+        <script><![CDATA[ try {
+     var pulled = 0;
+     var insert = 0;
+     var update = 0;
+     var uptodate = 0;
+     var r = new sn_ws.RESTMessageV2('Add Carriers to FEOS carriers page', 'Default GET');
+     var response = r.execute();
+     var responseBody = response.getBody();
+     var httpStatus = response.getStatusCode();
+     var parser = new JSONParser();
+     var parsedResponse = parser.parse(responseBody);
+     var code = parsedResponse.code;
+     if (code == 200) {
+         pulled += parsedResponse.count;
+         for (var i = 0; i < parsedResponse.data.length; i++) {
+             var gr = new GlideRecord('u_carriers');
+             gr.addQuery('u_job_title', parsedResponse.data[i].jobTitle);
+             gr.query();
+             if (gr.next()) {
+                 if (
+                     parsedResponse.data[i].active != gr.u_active ||
+                     parsedResponse.data[i].sector != gr.u_sector ||
+                     parsedResponse.data[i].state != gr.u_state ||
+                     parsedResponse.data[i].country != gr.u_country ||
+                     parsedResponse.data[i].applyLink != gr.u_apply_link || !gr.u_db_sync
+                 ) {
+                     gr.u_job_title = parsedResponse.data[i].jobTitle;
+                     gr.u_sector = parsedResponse.data[i].sector;
+                     gr.u_state = parsedResponse.data[i].state;
+                     gr.u_country = parsedResponse.data[i].country;
+                     gr.u_apply_link = parsedResponse.data[i].applyLink;
+                     gr.u_active = parsedResponse.data[i].active;
+                     gr.u_db_sync = true;
+                     gr.setWorkflow(false);
+                     var updt = gr.update();
+                     if (updt) {
+                         update++;
+                     }
+                 } else {
+                     uptodate++;
+                 }
+             } else {
+                 var gr1 = new GlideRecord('u_carriers');
+                 gr1.initialize();
+                 gr1.u_job_title = parsedResponse.data[i].jobTitle;
+                 gr1.u_sector = parsedResponse.data[i].sector;
+                 gr1.u_state = parsedResponse.data[i].state;
+                 gr1.u_country = parsedResponse.data[i].country;
+                 gr1.u_apply_link = parsedResponse.data[i].applyLink;
+                 gr1.u_active = parsedResponse.data[i].active;
+                 gr1.u_db_sync = true;
+                 gr1.setWorkflow(false);
+                 var insrt = gr1.insert();
+                 if (insrt) {
+                     insert++;
+                 }
+             }
+         }
+         gs.addInfoMessage('data retrived successfully. Pulled: ' + pulled + ' || Up to date: ' + uptodate + ' / Insert: ' + insert + ' / Update: ' + update);
+     } else {
+         gs.addErrorMessage('Error while retriving data');
+     }
+ } catch (ex) {
+     var message = ex.message;
+     gs.log(message);
+ }]]></script>
+        <show_insert>true</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-06-29 08:22:25</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>dfa797584773211098d341fe436d43b7</sys_id>
+        <sys_mod_count>27</sys_mod_count>
+        <sys_name>Pull Carriers</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>sys_ui_action_dfa797584773211098d341fe436d43b7</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:40</sys_updated_on>
+        <table>u_carriers</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18c916194fd0000001</claim_timestamp>
+        <metadata_update_name>sys_ui_action_dfa797584773211098d341fe436d43b7</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-12-22 11:55:40</sys_created_on>
+        <sys_id>f6706e85475f351098d341fe436d4332</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:40</sys_updated_on>
+    </sys_claim>
+</record_update>

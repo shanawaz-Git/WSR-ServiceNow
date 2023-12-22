@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>false</isolate_script>
+        <messages/>
+        <name>Change form background</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+   //Change the color of all form section headers
+   var backgroundColor = 'red';
+var img = "url('https://media.giphy.com/media/H4nUqdNomOWzJfoIa6/giphy.gif')";
+   
+    $$('.tabs2_section').each(function(elmt) {
+      elmt.style.backgroundImage = img;
+   });
+//    $$('.section_header_body_no_scroll').each(function(elmt) {
+//       elmt.style.backgroundColor = backgroundColor;
+//    }); section-content
+  $$('.tabs2_section').each(function(elmt) {
+      elmt.style.backgroundImage = img;
+   });
+ $$('#991f88d20a00064127420bc37824d385').each(function(elmt) {
+      elmt.style.backgroundImage = "url('https://media.giphy.com/media/5n7VaxuwkOi1SLn8Jj/giphy.gif')";
+   });
+
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-15 05:16:39</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>9edd5c50db522110cb16b7e8f496197d</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>Change form background</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>sys_script_client_9edd5c50db522110cb16b7e8f496197d</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:40</sys_updated_on>
+        <table>incident</table>
+        <type>onLoad</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18c916195310000001</claim_timestamp>
+        <metadata_update_name>sys_script_client_9edd5c50db522110cb16b7e8f496197d</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-12-22 11:55:40</sys_created_on>
+        <sys_id>b2706e85475f351098d341fe436d4337</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:40</sys_updated_on>
+    </sys_claim>
+</record_update>

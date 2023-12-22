@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>global.DataSourceLoader</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Loads Data using System Import Sets.  Will clean up data source, transform map, import set, and import set table after import is complete.&#13;
+Takes a Data Source and Transform Map name&#13;
+Can specify to leave the map for future imports with a boolean value, if not specified the map will be deleted.</description>
+        <name>DataSourceLoader</name>
+        <script><![CDATA[gs.include("PrototypeServer");
+
+var DataSourceLoader = Class.create();
+
+DataSourceLoader.prototype = {
+    initialize: function() {},
+
+    load: function( /* Data Source */ source, /* Transform Map */ mapName) {
+        this._load(source, mapName, true);
+    },
+
+    _load: function( /* Data Source */ source, /* Transform Map */ mapName, /* Delete Transform Map */ cleanMap) {
+        var sourceGr = new GlideRecord('sys_data_source');
+        sourceGr.addQuery('name', source).addOrCondition('sys_id', source);
+        sourceGr.query();
+        // if we have our data source continue
+        if (!sourceGr.next()) {
+            gs.print('Did not find Data Source ' + source);
+            return;
+        }
+
+        var map = new GlideRecord('sys_transform_map');
+        map.addQuery('name', mapName).addOrCondition('sys_id', mapName);
+        map.query();
+        // if we have a map we can now load and run the transform
+        if (!map.next()) {
+            gs.print('Did not find Transform map ' + mapName);
+            return;
+        }
+
+        gs.print('Loading Import Set ' + source);
+        var loader = new GlideImportSetLoader();
+        var importSetGr = loader.getImportSetGr(sourceGr);
+        var ranload = loader.loadImportSetTable(importSetGr, sourceGr);
+
+        if (!ranload) {
+            gs.print('Failed to load import set ' + source);
+            return;
+        }
+
+        gs.print('Running Transform map ' + map.name);
+        var t = new GlideImportSetTransformer();
+        t.setMapID(map.sys_id);
+        t.transformAllMaps(importSetGr);
+
+        // Clean up Import
+        var cleaner = new ImportSetCleaner(importSetGr.table_name);
+        cleaner.setDataOnly(true);
+        cleaner.setDeleteMaps(cleanMap);
+        cleaner.clean();
+    }
+
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>glide.maint</sys_created_by>
+        <sys_created_on>2008-10-13 17:11:19</sys_created_on>
+        <sys_id>f72885290a0a0b4d01957352e8a29e31</sys_id>
+        <sys_mod_count>38</sys_mod_count>
+        <sys_name>DataSourceLoader</sys_name>
+        <sys_package display_value="System Import Sets" source="com.glide.system_import_set">baa9cfb1e821211076da10591ad287f6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>sys_script_include_f72885290a0a0b4d01957352e8a29e31</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:42</sys_updated_on>
+    </sys_script_include>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18c91619b510000001</claim_timestamp>
+        <metadata_update_name>sys_script_include_f72885290a0a0b4d01957352e8a29e31</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>WSR ServiceNow</previous_claim_name>
+        <previous_claim_scope>10e0d39a4729711098d341fe436d43af</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-12-22 11:55:42</sys_created_on>
+        <sys_id>df706e85475f351098d341fe436d43b3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:42</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</claim_owner_scope>
+        <claim_timestamp>18c91619b500000001</claim_timestamp>
+        <metadata_update_name>sys_script_include_f72885290a0a0b4d01957352e8a29e31</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.glide.system_import_set</previous_claim_name>
+        <previous_claim_scope>com.glide.system_import_set</previous_claim_scope>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-12-22 11:55:42</sys_created_on>
+        <sys_id>93706e85475f351098d341fe436d43b4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-12-22 11:55:42</sys_updated_on>
+    </sys_claim>
+</record_update>
