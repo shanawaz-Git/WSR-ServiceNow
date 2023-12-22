@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script><![CDATA[function actionOK() {
+    var user_first_name = gel('user_first_name').value;
+    var user_last_name = gel('user_last_name').value;
+    var user_email = gel('user_email').value;
+    var user_phone = gel('user_phone').value;
+    var user_id = user_email;
+    var gr = new GlideRecord('sys_user');
+    gr.addQuery("user_name", user_id);
+    gr.query();
+    if (gr.next()) {
+        g_form.addErrorMessage('User with the email: ' + user_email + " already exist...");
+        GlideDialogWindow.get().destroy();
+        return false;
+    } else {
+        gr.initialize();
+        gr.user_name = user_id;
+        gr.first_name = user_first_name;
+        gr.last_name = user_last_name;
+        gr.email = user_email;
+        gr.mobile_phone = user_phone;
+        var newUser = gr.insert();
+        g_form.setValue("caller_id", newUser);
+        g_form.addInfoMessage('User record created');
+        GlideDialogWindow.get().destroy();
+        return false;
+    }
+}
+
+function onCancel() {
+    GlideDialogWindow.get().destroy();
+    return false;
+}]]></client_script>
+        <description/>
+        <direct>false</direct>
+        <endpoint/>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+   <g:ui_form>
+	     <input type="hidden" id="cancel_or_submit" name="cancel_or_submit" value=""/>
+
+<style>
+/* Sample CSS styles, you can modify these as needed */
+.user-details-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.user-details-table td {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+.user-details-table label {
+    font-weight: bold;
+}
+
+.user-details-table input[type="text"] {
+    width: 100%;
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+</style>
+
+<table class="user-details-table">
+    <tr>
+        <td width="150"><label>${gs.getMessage("First Name:")}</label></td>
+        <td><input type="text" id="user_first_name"/></td>
+    </tr>
+    <tr>
+        <td><label>${gs.getMessage("Last Name:")}</label></td>
+        <td><input type="text" id="user_last_name"/></td>
+    </tr>
+    <tr>
+        <td><label>${gs.getMessage("Email:")}</label></td>
+        <td><input type="text" id="user_email"/></td>
+    </tr>
+    <tr>
+        <td><label>${gs.getMessage("Phone:")}</label></td>
+        <td><input type="text" id="user_phone"/></td>
+    </tr>
+</table>
+
+
+	<br/>
+	<div id="dialogbuttons" style="float:right">
+		<g:dialog_buttons_ok_cancel ok="return actionOK();" cancel="return onCancel();"/>
+	</div>
+</g:ui_form>
+
+</j:jelly>]]></html>
+        <name>create_new_user</name>
+        <processing_script><![CDATA[// processingScript();
+
+function processingScript() {
+    var urlOnStack = GlideSession.get().getStack().bottom();
+    response.sendRedirect(urlOnStack);
+}]]></processing_script>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>shanawaz</sys_created_by>
+        <sys_created_on>2023-11-14 12:05:23</sys_created_on>
+        <sys_id>c325be7447e6711098d341fe436d43be</sys_id>
+        <sys_mod_count>33</sys_mod_count>
+        <sys_name>create_new_user</sys_name>
+        <sys_package display_value="WSR ServiceNow" source="10e0d39a4729711098d341fe436d43af">10e0d39a4729711098d341fe436d43af</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>sys_ui_page_c325be7447e6711098d341fe436d43be</sys_update_name>
+        <sys_updated_by>shanawaz</sys_updated_by>
+        <sys_updated_on>2023-11-14 14:29:49</sys_updated_on>
+    </sys_ui_page>
+</record_update>
