@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="894cba7d93180210bed1393efaba103d" label="WSR Work Effort" max_length="40" name="u_wsr_work_effort" type="collection">
+        <element label="Assignee" max_length="40" name="u_assignee" type="string"/>
+        <element label="Date" max_length="40" name="u_date" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="Effort (in mins)" max_length="40" name="u_effort_in_mins" type="integer"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Incident" max_length="32" name="u_incident" reference="u_wsr_table" type="reference"/>
+        <index name="index">
+            <element name="u_incident"/>
+        </index>
+    </element>
+</database>

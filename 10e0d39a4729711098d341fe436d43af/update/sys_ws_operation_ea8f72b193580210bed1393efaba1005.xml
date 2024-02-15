@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>POST</http_method>
+        <name>pushworkefforts</name>
+        <operation_script><![CDATA[(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    // implement resource here
+    var reqst = request.body.data;
+    var ticketArray = reqst.content;
+
+    var availableArray = [];
+    var notavailableArray = [];
+    var existEffort = {};
+
+    for (var i = 0; i < ticketArray.length; i++) {
+        var gr = new GlideRecord("u_wsr_table");
+        gr.addQuery("u_incident_id", ticketArray[i].Chr_TicketNumber);
+        gr.query();
+        gr.setLimit(1);
+        if (gr._next()) {
+            var dayDate = getDate(ticketArray[i].Dat_Date);
+            var we = new GlideRecord('u_wsr_work_effort');
+            we.addQuery("u_incident", gr.sys_id);
+            we.addQuery('u_assignee', ticketArray[i].Submitter_ID);
+            we.addQuery('u_date', dayDate);
+            we.query();
+            if (we.next()) {
+                availableArray.push(ticketArray[i].Chr_TicketNumber + "_" + ticketArray[i].Submitter_ID + '_' + dayDate);
+                if (typeof existEffort[ticketArray[i].Chr_TicketNumber + "_" + ticketArray[i].Submitter_ID + '_' + dayDate] === 'undefined') {
+                    existEffort[ticketArray[i].Chr_TicketNumber + "_" + ticketArray[i].Submitter_ID + '_' + dayDate] = {
+                        "ticket_id": ticketArray[i].Chr_TicketNumber,
+                        "assignee": ticketArray[i].Submitter_ID,
+                        "date": ticketArray[i].Dat_Date,
+                        "old": Number(we.u_effort_in_mins),
+                        "new": ticketArray[i].Int_EffortTimeSpent_All,
+                    };
+                } else {
+                    existEffort[ticketArray[i].Chr_TicketNumber + "_" + ticketArray[i].Submitter_ID + '_' + dayDate]["new"] += ticketArray[i].Int_EffortTimeSpent_All;
+                }
+            } else {
+                notavailableArray.push(ticketArray[i].Chr_TicketNumber);
+                we.initialize();
+                we.setValue('u_incident', gr.sys_id);
+                we.setValue('u_assignee', ticketArray[i].Submitter_ID);
+                we.setValue('u_date', dayDate);
+                we.setValue('u_effort_in_mins', ticketArray[i].Int_EffortTimeSpent_All);
+                we.insert();
+            }
+        }
+    }
+    if (availableArray.length > 0) {
+        var existingData = removeDuplicate(availableArray);
+        for (var k = 0; k < existingData.length; k++) {
+            if (existEffort[existingData[k]]["old"] != existEffort[existingData[k]]["new"]) {
+                var we1 = new GlideRecord('u_wsr_work_effort');
+                // we1.addQuery("u_incident", existEffort[existingData[k]]["ticket_id"]);
+                we1.addEncodedQuery('u_incident.u_incident_id=' + existEffort[existingData[k]]["ticket_id"])
+                we1.addQuery('u_assignee', existEffort[existingData[k]]["assignee"]);
+                we1.addQuery('u_date', getDate(existEffort[existingData[k]]["date"]));
+                we1.query();
+                if (we1.next()) {
+                    we1.u_effort_in_mins = existEffort[existingData[k]]["new"];
+                    we1.update();
+                }
+            }
+        }
+    }
+
+    response.setBody({
+        "arrayLength": ticketArray.length,
+        "notAvailableCount": notavailableArray.length,
+        "availableCount": availableArray.length,
+        "notAvailabeTicket": notavailableArray,
+        "availabeTicket": removeDuplicate(availableArray),
+        "output": existEffort
+    });
+    response.setStatus(201);
+
+})(request, response);
+
+
+function getDate(timestamp) {
+    // var gdt = new GlideDateTime();
+    var gdt = new GlideDate();
+    if (timestamp != null) {
+        gdt.setNumericValue(timestamp);
+        return gdt;
+    }
+    return '';
+}
+
+function removeDuplicate(myArray) {
+    var uniqueArray = [];
+
+    // Loop through each element in the array
+    for (var j = 0; j < myArray.length; j++) {
+        // Check if the current element is not already in the uniqueArray
+        if (uniqueArray.indexOf(myArray[j]) === -1) {
+            // If not found, add it to the uniqueArray
+            uniqueArray.push(myArray[j]);
+        }
+    }
+    return uniqueArray;
+}]]></operation_script>
+        <operation_uri>/api/808481/itsm_link/pushworkefforts</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/pushworkefforts</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-02-12 15:10:36</sys_created_on>
+        <sys_id>ea8f72b193580210bed1393efaba1005</sys_id>
+        <sys_mod_count>45</sys_mod_count>
+        <sys_name>pushworkefforts</sys_name>
+        <sys_package display_value="WSR ServiceNow" source="10e0d39a4729711098d341fe436d43af">10e0d39a4729711098d341fe436d43af</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="WSR ServiceNow">10e0d39a4729711098d341fe436d43af</sys_scope>
+        <sys_update_name>sys_ws_operation_ea8f72b193580210bed1393efaba1005</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-02-13 05:59:47</sys_updated_on>
+        <web_service_definition display_value="ITSM link">f5ef2e054729311098d341fe436d4339</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>
